@@ -10,14 +10,13 @@ O **PAPAGaio** é uma plataforma de inteligência analítica e dashboard educaci
 * **CSS3:** Estilização moderna (CSS Variables, Flexbox, CSS Grid), layout fluido e responsividade total (*mobile-first*, tablets e desktops).
 * **JavaScript (Vanilla):** Manipulação dinâmica do DOM, alternância de formulários sem reload de página, validações de entrada em tempo real e orquestração de dados analíticos.
 * **Biblioteca de Gráficos:** **Chart.js (CDN)** para renderização de gráficos responsivos, interativos e com animações fluidas (Rosca, Barras Horizontais, Linhas e Medidores).
-* **Paleta de Cores (Ardósia):**
-  * `#BEBEBE` (Ardósia Claro / Bordas e Neutros)
-  * `#79ED91` (Verde Vibrante / Destaque de Sucesso e Concluídas)
-  * `#698696` (Azul Ardósia / Primário e Cabeçalhos)
-  * `#4DBE55` (Verde Médio / Ações e Indicadores Positivos)
-  * `#71776D` (Cinza Musgo Ardósia / Textos secundários e apoios)
-* **Simulação de E-mail:** Notificação Toast com o código de 6 dígitos gerado aleatoriamente para validação ágil no front-end.
-* **Simplificação de Escopo:** Conforme alinhamento com o usuário, a divisão por cargos (Aluno vs. Professor) foi removida, mantendo uma visão unificada e rica focada no fluxo completo do usuário.
+* **Paleta de Cores Atualizada (Preto, Dourado e Branco):**
+  * **Preto Profundo / Ônix:** `#0B0E14` (Fundo principal), `#131720` (Cards e superfícies), `#161B26` (Inputs)
+  * **Dourado Nobre / Metálico:** `#D4AF37` (Dourado primário), `#F5D77F` (Dourado claro reluzente), `#AA771C` (Dourado escuro de contraste)
+  * **Branco Puro & Contrastes:** `#FFFFFF` (Títulos e destaques), `#E2E8F0` (Textos secundários), `#94A3B8` (Apoios)
+  * **Status de Alerta:** `#EF4444` (Vermelho para pendências e gargalos)
+* **Simulação de E-mail:** Notificação Toast escura com borda dourada e código numérico de 6 dígitos para teste imediato.
+* **Simplificação de Escopo:** Conforme alinhamento prévio com o usuário, a divisão por cargos (Aluno vs. Professor) foi removida, mantendo uma visão unificada e rica focada no fluxo completo do usuário.
 
 ---
 
@@ -53,33 +52,33 @@ O dashboard do PAPAGaio consolida os dados operacionais do Kanban e do Gaio:
 
 1. **Painel de Status das Tarefas (O "Funil" do Kanban):**
    * Gráfico de Rosca (Donut):
-     * *A Fazer* (Vermelho / Coral)
-     * *Em Andamento* (Amarelo / Âmbar)
-     * *Concluídas* (Verde `#4DBE55` / `#79ED91`)
-   * Métrica em destaque (Card numérico de alto impacto): **"Total de tarefas pendentes na semana"**.
+     * *A Fazer* (Vermelho `#EF4444`)
+     * *Em Andamento* (Dourado `#D4AF37`)
+     * *Concluídas* (Branco Puro `#FFFFFF`)
+   * Métrica em destaque (Card numérico de alto impacto com borda dourada): **"Total de tarefas pendentes na semana"**.
 
 2. **Painel de Carga por Disciplina/Tag (Gráfico de Barras Horizontal):**
    * Mapeamento do esforço por etiquetas coloridas do Gaio.
-   * Apresenta o número de tarefas por disciplina (ex.: *Matemática: 12 tarefas*, *História: 3 tarefas*, *Programação: 9 tarefas*, etc.).
+   * Apresenta o número de tarefas por disciplina (ex.: *Matemática: 12 tarefas*, *História: 3 tarefas*, *Algoritmos: 9 tarefas*, etc.) com gradientes dourados e brancos.
 
 3. **Painel de Prazos e Entregas (Saúde das Entregas):**
-   * Indicador visual de velocímetro / saúde das entregas (% no prazo vs. % com atraso).
-   * Identificação dos gargalos e prazos da semana.
+   * Indicador visual de velocímetro dourado de saúde das entregas (% no prazo vs. % com atraso).
+   * Identificação dos gargalos e prazos da semana com cards contrastantes.
 
 4. **Painel de Histórico e Linha do Tempo de Produtividade:**
-   * Gráfico de evolução temporal de conclusão de tarefas ao longo das semanas/meses.
+   * Gráfico de evolução temporal de conclusão de tarefas em dourado e branco ao longo das semanas.
 
 ---
 
 ## 4. Estrutura de Arquivos do Repositório
 ```text
 papagaio/
-├── assets/             # Logotipos SVG, ícones e ilustrações
+├── assets/             # Logotipos SVG em Preto e Dourado
 ├── css/
-│   └── style.css       # Folha de estilo unificada e responsiva (Paleta Ardósia)
+│   └── style.css       # Folha de estilo (Paleta Preto, Dourado e Branco)
 ├── js/
 │   ├── auth.js         # Lógica de autenticação, transições e validações
-│   └── dashboard.js    # Lógica de renderização de gráficos Chart.js e métricas
+│   └── dashboard.js    # Lógica de renderização de gráficos Chart.js em Ouro e Branco
 ├── dashboard.html      # Visão analítica pós-login
 ├── index.html          # Ponto de entrada (Login, Registro e Verificação de E-mail)
 ├── context.md          # Especificação e arquitetura do projeto

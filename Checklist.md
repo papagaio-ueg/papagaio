@@ -1,6 +1,6 @@
 # Checklist de Desenvolvimento - PAPAGaio 🦜
 
-Status do Projeto: 🟢 **Concluído e Validado**
+Status do Projeto: 🟢 **Concluído e Atualizado**
 
 ---
 
@@ -10,18 +10,18 @@ Status do Projeto: 🟢 **Concluído e Validado**
 - [x] Decisão de Gráficos: Chart.js via CDN aprovado
 - [x] Decisão de Escopo: Remoção do requisito de cargos (Aluno/Professor), foco em Dashboard consolidado único
 - [x] Decisão de Verificação: Notificação Toast dinâmica com o código de 6 dígitos
-- [x] Decisão Visual: Paleta de Cores Ardósia (`#BEBEBE`, `#79ED91`, `#698696`, `#4DBE55`, `#71776D`)
+- [x] Decisão Visual Atualizada: **Paleta Preto, Dourado e Branco** (`#0B0E14`, `#131720`, `#D4AF37`, `#F5D77F`, `#AA771C`, `#FFFFFF`)
 
 ---
 
 ## 🎨 Fase 2: Identidade Visual e Estilos Globais (`css/style.css`)
-- [x] Criação do diretório `assets/` e ícone/logo SVG do PAPAGaio com Paleta Ardósia
-- [x] Definição do Design System com as variáveis CSS da Paleta Ardósia
+- [x] Criação do diretório `assets/` e ícone/logo SVG do PAPAGaio com Paleta Preto, Dourado e Branco
+- [x] Definição do Design System com as variáveis CSS de Preto Ônix, Ouro Metálico e Branco Puro
 - [x] Estilos base de tipografia, resets, sombras e bordas arredondadas modernas
 - [x] Estilização dos componentes reutilizáveis:
-  - [x] Formulários, inputs com validação visual e ícones
-  - [x] Botões primários, secundários e estados hover/active
-  - [x] Cards de métricas com indicadores e badges coloridos
+  - [x] Formulários, inputs com validação visual e ícones dourados
+  - [x] Botões primários com gradiente dourado nobre e texto preto contrastante
+  - [x] Cards de métricas com indicadores e badges dourados e brancos
   - [x] Toast notification flutuante para feedback de mensagens e código de verificação
 - [x] Garantia de responsividade completa (*Mobile-first*, Tablets e Desktops)
 
@@ -53,15 +53,15 @@ Status do Projeto: 🟢 **Concluído e Validado**
 - [x] Estrutura semântica do `dashboard.html` com Navbar, Sidebar/Menu e Grid de Cards e Gráficos
 - [x] Integração do Chart.js via CDN
 - [x] **Painel de Status das Tarefas (Funil do Kanban):**
-  - [x] Gráfico de Rosca (Donut): "A Fazer" (Coral `#EF4444`), "Em Andamento" (Amarelo `#F59E0B`) e "Concluídas" (Verde Ardósia `#4DBE55`)
-  - [x] Card de destaque numérico: "Total de tarefas pendentes na semana"
+  - [x] Gráfico de Rosca (Donut): "A Fazer" (Coral `#EF4444`), "Em Andamento" (Dourado `#D4AF37`) e "Concluídas" (Branco `#FFFFFF`)
+  - [x] Card de destaque numérico: "Total de tarefas pendentes na semana" em gradiente dourado
 - [x] **Painel de Carga por Disciplina/Tag:**
-  - [x] Gráfico de Barras Horizontal com tarefas por tag (Matemática: 12, História: 3, Algoritmos: 9, Banco de Dados: 7, Eng. Software: 5)
+  - [x] Gráfico de Barras Horizontal com tarefas por tag (Matemática: 12, História: 3, Algoritmos: 9, Banco de Dados: 7, Eng. Software: 5) em Ouro e Branco
 - [x] **Painel de Prazos e Entregas (Saúde das Entregas):**
-  - [x] Indicador visual tipo velocímetro / semicírculo gauge de saúde das entregas (86% no prazo vs. 14% atrasos)
+  - [x] Indicador visual tipo velocímetro / semicírculo gauge em Ouro e Vermelho (86% no prazo vs. 14% atrasos)
   - [x] Lista/Cards de gargalos da semana e prazos iminentes
 - [x] **Painel de Tendência Temporal / Histórico:**
-  - [x] Gráfico de linha mostrando ritmo de conclusão de tarefas ao longo das semanas
+  - [x] Gráfico de linha mostrando ritmo de conclusão de tarefas em Ouro reluzente e Branco
 - [x] Botão de Logout com retorno suave ao `index.html`
 
 ---

@@ -3,9 +3,9 @@
  * Arquivo: js/dashboard.js
  * 
  * Implementa:
- * 1. Recuperação e exibição de dados da sessão autenticada (ou usuário padrão)
- * 2. Gráfico Donut (Funil do Kanban: A Fazer, Em Andamento, Concluídas)
- * 3. Gráfico de Barras Horizontal (Carga por Disciplina / Tag)
+ * 1. Recuperação e exibição de dados da sessão autenticada
+ * 2. Gráfico Donut (Funil do Kanban: A Fazer, Em Andamento, Concluídas) com Paleta Preto, Dourado e Branco
+ * 3. Gráfico de Barras Horizontal (Carga por Disciplina / Tag) em Ouro e Branco
  * 4. Indicador Velocímetro / Gauge (Saúde das Entregas no Prazo vs. Atrasos)
  * 5. Gráfico de Linha (Evolução Temporal de Entregas)
  * 6. Tratamento de Logout e responsividade dos gráficos
@@ -69,13 +69,12 @@
   }
 
   // ==========================================================================
-  // CONFIGURAÇÃO DOS GRÁFICOS (CHART.JS) - PALETA ARDÓSIA
-  // Cores: #BEBEBE, #79ED91, #698696, #4DBE55, #71776D
+  // CONFIGURAÇÃO DOS GRÁFICOS (CHART.JS) - PALETA PRETO, DOURADO E BRANCO
   // ==========================================================================
 
-  // Configuração global de fontes e estilo do Chart.js
+  // Configuração global de fontes e contraste
   Chart.defaults.font.family = "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-  Chart.defaults.color = '#71776D';
+  Chart.defaults.color = '#CBD5E1';
 
   // --------------------------------------------------------------------------
   // 1. PAINEL DE STATUS DAS TAREFAS: O "FUNIL" DO KANBAN (GRÁFICO DE ROSCA)
@@ -88,16 +87,16 @@
         data: [18, 12, 35],
         backgroundColor: [
           '#EF4444', // Vermelho (A Fazer)
-          '#F59E0B', // Amarelo (Em Andamento)
-          '#4DBE55'  // Verde Ardósia (Concluídas)
+          '#D4AF37', // Dourado Nobre (Em Andamento)
+          '#FFFFFF'  // Branco Puro (Concluídas)
         ],
         hoverBackgroundColor: [
           '#DC2626',
-          '#D97706',
-          '#3DA644'
+          '#F5D77F',
+          '#E2E8F0'
         ],
-        borderWidth: 3,
-        borderColor: '#FFFFFF',
+        borderWidth: 2,
+        borderColor: '#131720',
         hoverOffset: 6
       }]
     };
@@ -111,12 +110,16 @@
         cutout: '68%',
         plugins: {
           legend: {
-            display: false // Usamos a legenda semântica customizada abaixo do gráfico
+            display: false
           },
           tooltip: {
-            backgroundColor: '#1E242B',
+            backgroundColor: '#0E1218',
+            borderColor: '#D4AF37',
+            borderWidth: 1,
             titleFont: { size: 13, weight: 'bold' },
+            titleColor: '#FFFFFF',
             bodyFont: { size: 12 },
+            bodyColor: '#E2E8F0',
             padding: 12,
             cornerRadius: 8,
             callbacks: {
@@ -148,13 +151,13 @@
       ],
       datasets: [{
         label: 'Quantidade de Tarefas',
-        data: [12, 9, 7, 5, 3], // Exemplo explícito do enunciado: Matemática (12), História (3)
+        data: [12, 9, 7, 5, 3], // Exemplo explícito: Matemática (12), História (3)
         backgroundColor: [
-          '#698696', // Azul Ardósia
-          '#4DBE55', // Verde Médio
-          '#71776D', // Cinza Musgo
-          '#79ED91', // Verde Vibrante
-          '#BEBEBE'  // Ardósia Claro
+          '#D4AF37', // Dourado Nobre
+          '#F5D77F', // Dourado Claro
+          '#FFFFFF', // Branco
+          '#AA771C', // Dourado Escuro
+          '#CBD5E1'  // Prata / Branco Suave
         ],
         borderRadius: 6,
         barPercentage: 0.65
@@ -165,7 +168,7 @@
       type: 'bar',
       data: disciplineData,
       options: {
-        indexAxis: 'y', // Barra horizontal
+        indexAxis: 'y',
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
@@ -173,7 +176,11 @@
             display: false
           },
           tooltip: {
-            backgroundColor: '#1E242B',
+            backgroundColor: '#0E1218',
+            borderColor: '#D4AF37',
+            borderWidth: 1,
+            titleColor: '#FFFFFF',
+            bodyColor: '#E2E8F0',
             padding: 10,
             cornerRadius: 8,
             callbacks: {
@@ -186,9 +193,10 @@
             beginAtZero: true,
             max: 14,
             grid: {
-              color: '#F1F5F9'
+              color: 'rgba(255, 255, 255, 0.06)'
             },
             ticks: {
+              color: '#94A3B8',
               stepSize: 2,
               font: { weight: '600' }
             }
@@ -198,8 +206,8 @@
               display: false
             },
             ticks: {
-              font: { weight: '700' },
-              color: '#1F2937'
+              color: '#FFFFFF',
+              font: { weight: '700' }
             }
           }
         }
@@ -215,9 +223,9 @@
     const gaugeData = {
       labels: ['No Prazo', 'Com Atraso'],
       datasets: [{
-        data: [30, 5], // 30 no prazo (86%), 5 com atraso (14%)
+        data: [30, 5],
         backgroundColor: [
-          '#4DBE55', // Verde Ardósia
+          '#D4AF37', // Dourado Nobre
           '#EF4444'  // Vermelho
         ],
         borderWidth: 0,
@@ -238,6 +246,11 @@
             display: false
           },
           tooltip: {
+            backgroundColor: '#0E1218',
+            borderColor: '#D4AF37',
+            borderWidth: 1,
+            titleColor: '#FFFFFF',
+            bodyColor: '#E2E8F0',
             callbacks: {
               label: (ctx) => ` ${ctx.label}: ${ctx.raw} tarefas`
             }
@@ -258,26 +271,26 @@
         {
           label: 'Tarefas Concluídas',
           data: [6, 11, 15, 10],
-          borderColor: '#4DBE55',
-          backgroundColor: 'rgba(77, 190, 85, 0.12)',
+          borderColor: '#D4AF37',
+          backgroundColor: 'rgba(212, 175, 55, 0.16)',
           borderWidth: 3,
           fill: true,
           tension: 0.35,
           pointRadius: 5,
-          pointBackgroundColor: '#4DBE55',
-          pointBorderColor: '#FFFFFF',
+          pointBackgroundColor: '#F5D77F',
+          pointBorderColor: '#D4AF37',
           pointBorderWidth: 2
         },
         {
           label: 'Novas Demandas (Gaio)',
           data: [8, 14, 12, 11],
-          borderColor: '#698696',
+          borderColor: '#FFFFFF',
           borderWidth: 2,
           borderDash: [5, 5],
           tension: 0.35,
           pointRadius: 4,
-          pointBackgroundColor: '#698696',
-          pointBorderColor: '#FFFFFF',
+          pointBackgroundColor: '#FFFFFF',
+          pointBorderColor: '#0E1218',
           fill: false
         }
       ]
@@ -300,11 +313,16 @@
             labels: {
               boxWidth: 12,
               usePointStyle: true,
+              color: '#FFFFFF',
               font: { weight: '600' }
             }
           },
           tooltip: {
-            backgroundColor: '#1E242B',
+            backgroundColor: '#0E1218',
+            borderColor: '#D4AF37',
+            borderWidth: 1,
+            titleColor: '#FFFFFF',
+            bodyColor: '#E2E8F0',
             padding: 10,
             cornerRadius: 8
           }
@@ -314,9 +332,10 @@
             beginAtZero: true,
             max: 18,
             grid: {
-              color: '#F1F5F9'
+              color: 'rgba(255, 255, 255, 0.06)'
             },
             ticks: {
+              color: '#94A3B8',
               stepSize: 3
             }
           },
@@ -325,6 +344,7 @@
               display: false
             },
             ticks: {
+              color: '#CBD5E1',
               font: { weight: '600' }
             }
           }
