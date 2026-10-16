@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="100%" height="100%">
+  <defs>
+    <linearGradient id="wingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#79ED91" />
+      <stop offset="100%" stop-color="#4DBE55" />
+    </linearGradient>
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#698696" />
+      <stop offset="100%" stop-color="#71776D" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Stylized Geometric Parrot Emblem -->
+  <g transform="translate(10, 8)" filter="url(#shadow)">
+    <!-- Back Feathers / Tail -->
+    <path d="M 24 54 L 14 68 L 28 62 Z" fill="#71776D" />
+    <path d="M 28 52 L 20 70 L 34 60 Z" fill="#698696" />
+    
+    <!-- Body -->
+    <path d="M 32 16 C 44 16 52 26 52 40 C 52 54 42 62 30 62 C 22 62 18 56 18 46 C 18 30 24 16 32 16 Z" fill="url(#bodyGrad)" />
+    
+    <!-- Wing Layer -->
+    <path d="M 32 26 C 44 28 50 38 48 50 C 44 56 34 58 26 50 C 24 40 28 30 32 26 Z" fill="url(#wingGrad)" />
+    
+    <!-- Beak -->
+    <path d="M 48 24 C 60 26 66 32 64 38 C 58 38 52 32 48 28 Z" fill="#79ED91" />
+    <path d="M 50 32 C 58 35 60 40 56 42 C 53 40 50 36 50 32 Z" fill="#4DBE55" />
+    
+    <!-- Eye Ring & Pupil -->
+    <circle cx="43" cy="25" r="4.5" fill="#FFFFFF" />
+    <circle cx="44" cy="25" r="2.2" fill="#2B3036" />
+    <circle cx="45" cy="24" r="0.8" fill="#FFFFFF" />
+    
+    <!-- Crest -->
+    <path d="M 34 16 C 36 8 44 6 46 8 C 42 12 40 14 36 16 Z" fill="#79ED91" />
+    <path d="M 30 18 C 30 10 38 8 40 11 C 36 14 33 16 30 18 Z" fill="#4DBE55" />
+  </g>
+
+  <!-- Typography -->
+  <text x="86" y="44" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" fill="#2B3036" letter-spacing="-0.5">
+    PAPA<tspan fill="#4DBE55">Gaio</tspan>
+  </text>
+  <text x="88" y="60" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="600" fill="#698696" letter-spacing="1.5">
+    ANALYTICS • ECOSSISTEMA GAIO
+  </text>
+</svg>

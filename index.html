@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAPAGaio 🦜 | Autenticação</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  
+  <!-- Fonte Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Estilos Globais -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page">
+
+  <!-- Container de Toasts para Alertas e Código de Verificação -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Container Principal Centralizado -->
+  <main class="auth-wrapper" role="main">
+    
+    <!-- Banner de Apresentação / Marca (Desktop e Tablet) -->
+    <aside class="auth-banner" aria-label="Apresentação Institucional">
+      <div class="banner-header">
+        <img src="assets/logo.svg" alt="Logotipo do PAPAGaio" class="banner-logo">
+      </div>
+
+      <div class="banner-content">
+        <span class="banner-tag">Inteligência Educacional</span>
+        <h1 class="banner-title">Monitore sua jornada acadêmica com <span>precisão</span>.</h1>
+        <p class="banner-desc">
+          Consolidação inteligente do fluxo Kanban, controle de prazos por disciplina e saúde das entregas integradas ao ecossistema Gaio.
+        </p>
+      </div>
+
+      <div class="banner-features">
+        <div class="banner-feature-item">
+          <span class="feature-check">✓</span>
+          <span>Visão analítica em tempo real do Funil de Tarefas</span>
+        </div>
+        <div class="banner-feature-item">
+          <span class="feature-check">✓</span>
+          <span>Mapeamento de esforço e carga por disciplina</span>
+        </div>
+        <div class="banner-feature-item">
+          <span class="feature-check">✓</span>
+          <span>Termômetro de prazos e antecipação de gargalos</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Área Interativa de Formulários (Login / Registro / Verificação) -->
+    <section class="auth-forms-container" aria-label="Área de Autenticação">
+      
+      <!-- ==========================================
+           FORMULÁRIO DE LOGIN (Padrão inicial)
+           ========================================== -->
+      <article id="loginCard" class="auth-form-card active" aria-labelledby="loginTitle">
+        <div class="auth-form-header">
+          <h2 id="loginTitle" class="auth-title">Acesse sua conta</h2>
+          <p class="auth-subtitle">Informe seu e-mail e senha para acessar o dashboard</p>
+        </div>
+
+        <form id="loginForm" novalidate>
+          <!-- Campo E-mail -->
+          <div class="form-group">
+            <label for="loginEmail" class="form-label">E-mail institucional ou pessoal</label>
+            <div class="input-wrapper">
+              <span class="input-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </span>
+              <input 
+                type="email" 
+                id="loginEmail" 
+                name="email" 
+                class="form-input" 
+                placeholder="seu.email@exemplo.com"
+                required
+                autocomplete="email"
+              >
+            </div>
+            <span class="form-error-msg" id="loginEmailError"></span>
+          </div>
+
+          <!-- Campo Senha -->
+          <div class="form-group">
+            <label for="loginPassword" class="form-label">Senha</label>
+            <div class="input-wrapper">
+              <span class="input-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </span>
+              <input 
+                type="password" 
+                id="loginPassword" 
+                name="password" 
+                class="form-input" 
+                placeholder="••••••••" 
+                required
+                autocomplete="current-password"
+              >
+              <button type="button" class="input-toggle-password" data-target="loginPassword" aria-label="Mostrar ou ocultar senha">
+                👁️
+              </button>
+            </div>
+            <span class="form-error-msg" id="loginPasswordError"></span>
+          </div>
+
+          <!-- Botão de Ação -->
+          <button type="submit" id="btnLoginSubmit" class="btn btn-primary">
+            <span>Entrar no PAPAGaio</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </form>
+
+        <!-- Alternância em 1 Clique para Registro -->
+        <p class="auth-switch-text">
+          Não possui uma conta? 
+          <button type="button" id="btnGoToRegister" class="btn-link-switch">Registrar-se agora</button>
+        </p>
+      </article>
+
+      <!-- ==========================================
+           FORMULÁRIO DE REGISTRO
+           ========================================== -->
+      <article id="registerCard" class="auth-form-card hidden" aria-labelledby="registerTitle">
+        <div class="auth-form-header">
+          <h2 id="registerTitle" class="auth-title">Crie sua conta</h2>
+          <p class="auth-subtitle">Preencha seus dados para iniciar no PAPAGaio</p>
+        </div>
+
+        <form id="registerForm" novalidate>
+          <!-- Campo Nome (Apenas letras minúsculas e maiúsculas) -->
+          <div class="form-group">
+            <label for="registerName" class="form-label">Nome Completo</label>
+            <div class="input-wrapper">
+              <span class="input-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </span>
+              <input 
+                type="text" 
+                id="registerName" 
+                name="name" 
+                class="form-input" 
+                placeholder="Ex: Ana Clara Silva"
+                required
+                autocomplete="name"
+              >
+            </div>
+            <span class="form-error-msg" id="registerNameError"></span>
+          </div>
+
+          <!-- Campo E-mail -->
+          <div class="form-group">
+            <label for="registerEmail" class="form-label">E-mail</label>
+            <div class="input-wrapper">
+              <span class="input-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </span>
+              <input 
+                type="email" 
+                id="registerEmail" 
+                name="email" 
+                class="form-input" 
+                placeholder="seu.email@exemplo.com"
+                required
+                autocomplete="email"
+              >
+            </div>
+            <span class="form-error-msg" id="registerEmailError"></span>
+          </div>
+
+          <!-- Campo Senha -->
+          <div class="form-group">
+            <label for="registerPassword" class="form-label">Senha</label>
+            <div class="input-wrapper">
+              <span class="input-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </span>
+              <input 
+                type="password" 
+                id="registerPassword" 
+                name="password" 
+                class="form-input" 
+                placeholder="Mínimo 6 caracteres" 
+                required
+                autocomplete="new-password"
+              >
+              <button type="button" class="input-toggle-password" data-target="registerPassword" aria-label="Mostrar ou ocultar senha">
+                👁️
+              </button>
+            </div>
+            <span class="form-error-msg" id="registerPasswordError"></span>
+          </div>
+
+          <!-- Campo Confirmar Senha -->
+          <div class="form-group">
+            <label for="registerConfirmPassword" class="form-label">Confirmar Senha</label>
+            <div class="input-wrapper">
+              <span class="input-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </span>
+              <input 
+                type="password" 
+                id="registerConfirmPassword" 
+                name="confirmPassword" 
+                class="form-input" 
+                placeholder="Repita sua senha" 
+                required
+                autocomplete="new-password"
+              >
+              <button type="button" class="input-toggle-password" data-target="registerConfirmPassword" aria-label="Mostrar ou ocultar senha">
+                👁️
+              </button>
+            </div>
+            <span class="form-error-msg" id="registerConfirmPasswordError"></span>
+          </div>
+
+          <!-- Botão de Ação -->
+          <button type="submit" id="btnRegisterSubmit" class="btn btn-success">
+            <span>Avançar para Verificação</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </form>
+
+        <!-- Alternância em 1 Clique para Login -->
+        <p class="auth-switch-text">
+          Já possui cadastro? 
+          <button type="button" id="btnGoToLogin" class="btn-link-switch">Fazer Login</button>
+        </p>
+      </article>
+
+      <!-- ==========================================
+           ETAPA DE VERIFICAÇÃO DE E-MAIL
+           ========================================== -->
+      <article id="verificationCard" class="auth-form-card hidden" aria-labelledby="verificationTitle">
+        <div class="auth-form-header" style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 8px;">📬</div>
+          <h2 id="verificationTitle" class="auth-title">Confirme seu E-mail</h2>
+          <p class="auth-subtitle">
+            Enviamos um código de 6 dígitos para <strong id="verificationEmailTarget" style="color: var(--slate-blue);"></strong>.
+          </p>
+        </div>
+
+        <form id="verificationForm" novalidate>
+          <div class="form-group" style="text-align: center;">
+            <label for="verificationCode" class="form-label">Digite o código de verificação recebido</label>
+            <div class="code-input-container">
+              <input 
+                type="text" 
+                id="verificationCode" 
+                name="code" 
+                class="form-input verification-input" 
+                placeholder="000000" 
+                maxlength="6"
+                inputmode="numeric"
+                autocomplete="one-time-code"
+                required
+              >
+            </div>
+            <span class="form-error-msg" id="verificationCodeError" style="justify-content: center;"></span>
+          </div>
+
+          <button type="submit" id="btnConfirmCode" class="btn btn-success" style="margin-top: 10px;">
+            <span>Confirmar e Cadastrar</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </button>
+
+          <button type="button" id="btnResendCode" class="btn btn-secondary" style="margin-top: 10px;">
+            <span>Reenviar Código por E-mail</span>
+          </button>
+        </form>
+
+        <p class="auth-switch-text">
+          Digitou o e-mail errado? 
+          <button type="button" id="btnBackToRegister" class="btn-link-switch">Voltar ao cadastro</button>
+        </p>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- Script Dedicado de Autenticação -->
+  <script src="js/auth.js"></script>
+</body>
+</html>
