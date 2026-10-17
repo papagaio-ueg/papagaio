@@ -7,8 +7,10 @@ Documentação introdutória e especificações iniciais do projeto **Papagaio**
 ## 🛠️ Tecnologias Utilizadas (Front-end Inicial)
 
 * **HTML5:** Estruturação semântica das páginas.
-* **CSS3:** Estilização, layout e responsividade (mobile-first / adaptável).
-* **JavaScript (Vanilla):** Lógica de manipulação do DOM (alternância dinâmica de formulários) e validação de dados no lado do cliente.
+* **CSS3:** Estilização moderna (Design System, CSS Variables, Flexbox, Grid) e responsividade mobile-first.
+* **JavaScript (Vanilla):** Lógica de manipulação do DOM, transição de formulários em 1 clique, validações e orquestração de dados analíticos.
+* **Chart.js:** Gráficos interativos (Donut, Barras Horizontais, Velocímetro e Linha).
+* **Identidade Visual:** **Tema Claro** com paleta inspirada no **Papagaio / Gaio** (Verde Esmeralda `#059669`, Azul Petróleo `#0F4C5C` e Amarelo Solar / Laranja Tropical `#F59E0B`/`#EA580C`).
 
 ---
 

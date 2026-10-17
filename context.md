@@ -8,14 +8,14 @@ O **PAPAGaio** é uma plataforma de inteligência analítica e dashboard educaci
 ## 2. Tecnologias e Decisões de Arquitetura
 * **HTML5:** Marcação semântica das páginas para acessibilidade, clareza estrutural e SEO.
 * **CSS3:** Estilização moderna (CSS Variables, Flexbox, CSS Grid), layout fluido e responsividade total (*mobile-first*, tablets e desktops).
-* **JavaScript (Vanilla):** Manipulação dinâmica do DOM, alternância de formulários sem reload de página, validações de entrada em tempo real e orquestração de dados analíticos.
 * **Biblioteca de Gráficos:** **Chart.js (CDN)** para renderização de gráficos responsivos, interativos e com animações fluidas (Rosca, Barras Horizontais, Linhas e Medidores).
-* **Paleta de Cores Atualizada (Preto, Dourado e Branco):**
-  * **Preto Profundo / Ônix:** `#0B0E14` (Fundo principal), `#131720` (Cards e superfícies), `#161B26` (Inputs)
-  * **Dourado Nobre / Metálico:** `#D4AF37` (Dourado primário), `#F5D77F` (Dourado claro reluzente), `#AA771C` (Dourado escuro de contraste)
-  * **Branco Puro & Contrastes:** `#FFFFFF` (Títulos e destaques), `#E2E8F0` (Textos secundários), `#94A3B8` (Apoios)
-  * **Status de Alerta:** `#EF4444` (Vermelho para pendências e gargalos)
-* **Simulação de E-mail:** Notificação Toast escura com borda dourada e código numérico de 6 dígitos para teste imediato.
+* **Paleta de Cores Oficial (Tema Claro Papagaio / Gaio):**
+  * **Verde Esmeralda:** `#059669` (Primário da marca e tarefas concluídas), `#10B981` (Esmeralda claro), `#ECFDF5` (Fundos suaves de badges)
+  * **Azul Petróleo:** `#0F4C5C` (Primário institucional), `#155E75` e `#0E7490` (Em Andamento e apoio visual), `#0B3642` (Petróleo profundo)
+  * **Amarelo Solar & Laranja Tropical:** `#F59E0B` (Amarelo / Âmbar de atenção), `#EA580C` (Laranja vivo para "A Fazer" e prazos)
+  * **Superfícies em Tema Claro:** `#F4F7F6` (Fundo geral arejado), `#FFFFFF` (Cards, formulários e navbar com sombras sutis)
+  * **Tipografia de Alto Contraste:** `#0F172A` (Títulos e textos principais), `#334155` (Secundários), `#64748B` (Apoios)
+* **Simulação de E-mail:** Notificação Toast moderna em tema claro com borda verde esmeralda e código numérico de 6 dígitos em badge estilizado.
 * **Simplificação de Escopo:** Conforme alinhamento prévio com o usuário, a divisão por cargos (Aluno vs. Professor) foi removida, mantendo uma visão unificada e rica focada no fluxo completo do usuário.
 
 ---
@@ -47,39 +47,39 @@ O **PAPAGaio** é uma plataforma de inteligência analítica e dashboard educaci
 
 ---
 
-### 3.2. Dashboard Analítico Unificado (`dashboard.html` e `js/dashboard.js`)
+## 3.2. Dashboard Analítico Unificado (`dashboard.html` e `js/dashboard.js`)
 O dashboard do PAPAGaio consolida os dados operacionais do Kanban e do Gaio:
 
 1. **Painel de Status das Tarefas (O "Funil" do Kanban):**
    * Gráfico de Rosca (Donut):
-     * *A Fazer* (Vermelho `#EF4444`)
-     * *Em Andamento* (Dourado `#D4AF37`)
-     * *Concluídas* (Branco Puro `#FFFFFF`)
-   * Métrica em destaque (Card numérico de alto impacto com borda dourada): **"Total de tarefas pendentes na semana"**.
+     * *A Fazer* (Laranja Tropical `#EA580C`)
+     * *Em Andamento* (Azul Petróleo `#0E7490`)
+     * *Concluídas* (Verde Esmeralda `#059669`)
+   * Métrica em destaque (Card numérico de alto impacto com borda solar e gradiente tropical): **"Total de tarefas pendentes na semana"**.
 
 2. **Painel de Carga por Disciplina/Tag (Gráfico de Barras Horizontal):**
    * Mapeamento do esforço por etiquetas coloridas do Gaio.
-   * Apresenta o número de tarefas por disciplina (ex.: *Matemática: 12 tarefas*, *História: 3 tarefas*, *Algoritmos: 9 tarefas*, etc.) com gradientes dourados e brancos.
+   * Apresenta o número de tarefas por disciplina (ex.: *Matemática: 12 tarefas*, *História: 3 tarefas*, *Algoritmos: 9 tarefas*, etc.) com a paleta do Papagaio (Esmeralda, Petróleo, Amarelo e Laranja).
 
 3. **Painel de Prazos e Entregas (Saúde das Entregas):**
-   * Indicador visual de velocímetro dourado de saúde das entregas (% no prazo vs. % com atraso).
-   * Identificação dos gargalos e prazos da semana com cards contrastantes.
+   * Indicador visual de velocímetro de saúde das entregas (% no prazo em Verde Esmeralda vs. % com atraso em Laranja).
+   * Identificação dos gargalos e prazos da semana com cards contrastantes no tema claro.
 
 4. **Painel de Histórico e Linha do Tempo de Produtividade:**
-   * Gráfico de evolução temporal de conclusão de tarefas em dourado e branco ao longo das semanas.
+   * Gráfico de evolução temporal de conclusão de tarefas em Verde Esmeralda e Azul Petróleo ao longo das semanas.
 
 ---
 
 ## 4. Estrutura de Arquivos do Repositório
 ```text
 papagaio/
-├── assets/             # Logotipos SVG em Preto e Dourado
+├── assets/             # Logotipos e Favicon SVG (Paleta Papagaio: Esmeralda, Petróleo e Laranja)
 ├── css/
-│   └── style.css       # Folha de estilo (Paleta Preto, Dourado e Branco)
+│   └── style.css       # Folha de estilo unificada (Tema Claro Papagaio)
 ├── js/
 │   ├── auth.js         # Lógica de autenticação, transições e validações
-│   └── dashboard.js    # Lógica de renderização de gráficos Chart.js em Ouro e Branco
-├── dashboard.html      # Visão analítica pós-login
+│   └── dashboard.js    # Lógica de renderização de gráficos Chart.js
+├── dashboard.html      # Visão analítica pós-login em tema claro
 ├── index.html          # Ponto de entrada (Login, Registro e Verificação de E-mail)
 ├── context.md          # Especificação e arquitetura do projeto
 ├── Checklist.md        # Acompanhamento detalhado das etapas e entregas

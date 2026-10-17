@@ -1,23 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <linearGradient id="goldFav" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F5D77F" />
-      <stop offset="50%" stop-color="#D4AF37" />
-      <stop offset="100%" stop-color="#AA771C" />
+    <linearGradient id="emeraldFav" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34D399" />
+      <stop offset="100%" stop-color="#059669" />
     </linearGradient>
-    <linearGradient id="blackFav" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2D333F" />
-      <stop offset="100%" stop-color="#0E1116" />
+    <linearGradient id="petrolFav" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E7490" />
+      <stop offset="100%" stop-color="#0F4C5C" />
+    </linearGradient>
+    <linearGradient id="amberFav" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#EA580C" />
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="16" fill="#0B0E14" stroke="#D4AF37" stroke-width="2" />
+  <!-- Base em Tema Claro Elegante -->
+  <rect width="64" height="64" rx="16" fill="#FFFFFF" stroke="#059669" stroke-width="2" />
   <g transform="translate(4, 2)">
-    <path d="M 24 50 L 14 62 L 28 56 Z" fill="#AA771C" />
-    <path d="M 32 14 C 44 14 52 24 52 38 C 52 50 42 58 30 58 C 22 58 18 52 18 42 C 18 28 24 14 32 14 Z" fill="url(#blackFav)" stroke="#D4AF37" stroke-width="1" />
-    <path d="M 32 24 C 44 26 50 36 48 46 C 44 52 34 54 26 46 C 24 38 28 28 32 24 Z" fill="url(#goldFav)" />
-    <path d="M 48 22 C 58 24 64 28 62 34 C 56 34 52 28 48 24 Z" fill="#F5D77F" />
+    <path d="M 24 50 L 14 62 L 28 56 Z" fill="#0F4C5C" />
+    <path d="M 32 14 C 44 14 52 24 52 38 C 52 50 42 58 30 58 C 22 58 18 52 18 42 C 18 28 24 14 32 14 Z" fill="url(#petrolFav)" stroke="#10B981" stroke-width="1" />
+    <path d="M 32 24 C 44 26 50 36 48 46 C 44 52 34 54 26 46 C 24 38 28 28 32 24 Z" fill="url(#emeraldFav)" />
+    <path d="M 48 22 C 58 24 64 28 62 34 C 56 34 52 28 48 24 Z" fill="url(#amberFav)" />
     <circle cx="43" cy="23" r="4" fill="#FFFFFF" />
-    <circle cx="44" cy="23" r="2" fill="#000000" />
-    <path d="M 34 14 C 36 6 44 5 46 7 C 42 10 40 12 36 14 Z" fill="#D4AF37" />
+    <circle cx="44" cy="23" r="2" fill="#0F172A" />
+    <path d="M 34 14 C 36 6 44 5 46 7 C 42 10 40 12 36 14 Z" fill="#FBBF24" />
   </g>
 </svg>
