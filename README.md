@@ -9,8 +9,7 @@ Documentação introdutória e especificações iniciais do projeto **Papagaio**
 * **HTML5:** Estruturação semântica das páginas.
 * **CSS3:** Estilização moderna (Design System, CSS Variables, Flexbox, Grid) e responsividade mobile-first.
 * **JavaScript (Vanilla):** Lógica de manipulação do DOM, transição de formulários em 1 clique, validações e orquestração de dados analíticos.
-* **Chart.js:** Gráficos interativos (Donut, Barras Horizontais, Velocímetro e Linha).
-* **Identidade Visual:** **Tema Claro** com paleta inspirada no **Papagaio / Gaio** (Verde Esmeralda `#059669`, Azul Petróleo `#0F4C5C` e Amarelo Solar / Laranja Tropical `#F59E0B`/`#EA580C`).
+* **Identidade Visual:** **Tema Dark Slate** com paleta inspirada no novo **Emblema da Arara** (`#0B1120` Midnight Navy, `#162032` Dark Slate, Azul Royal `#2563EB`/`#3B82F6`, Verde Esmeralda `#10B981`, Laranja Quente `#F97316` e tipografia branca de alto contraste `#FFFFFF`/`#E2E8F0`).
 
 ---
 
