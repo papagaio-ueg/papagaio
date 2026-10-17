@@ -7,14 +7,14 @@
   /* ==========================================================================
      PALETA DE CORES PAPAGAIO (TEMA CLARO)
      ========================================================================== */
-  
+
   /* Verde Esmeralda (Natureza, Vitalidade e Conclusões) */
   --emerald-primary: #059669;
   --emerald-light: #10B981;
   --emerald-dark: #047857;
   --emerald-subtle: #ECFDF5;
   --emerald-glow: rgba(16, 185, 129, 0.25);
-  
+
   /* Azul Petróleo (Elegância, Solidez e Inteligência Analítica) */
   --petrol-primary: #0F4C5C;
   --petrol-deep: #0B3642;
@@ -49,18 +49,28 @@
   --bg-hover: #F1F5F9;
 
   /* Tipografia (Tema Claro com Alto Contraste e Legibilidade AAA) */
-  --text-primary: #0F172A;       /* Grafite Petróleo profundo para títulos */
-  --text-secondary: #334155;     /* Textos informativos secundários */
-  --text-muted: #64748B;         /* Rótulos e legendas de apoio */
-  --text-inverse: #FFFFFF;       /* Texto em botões e fundos contrastantes */
+  --text-primary: #0F172A;
+  /* Grafite Petróleo profundo para títulos */
+  --text-secondary: #334155;
+  /* Textos informativos secundários */
+  --text-muted: #64748B;
+  /* Rótulos e legendas de apoio */
+  --text-inverse: #FFFFFF;
+  /* Texto em botões e fundos contrastantes */
 
   /* Estados de Validação e Kanban */
-  --status-todo: #EA580C;         /* Laranja Tropical - A Fazer */
-  --status-doing: #0E7490;        /* Azul Petróleo - Em Andamento */
-  --status-done: #059669;         /* Verde Esmeralda - Concluídas */
-  --status-success: #10B981;      /* Confirmações */
-  --status-warning: #F59E0B;      /* Alertas / Atenção */
-  --status-error: #EF4444;        /* Erros e Gargalos */
+  --status-todo: #EA580C;
+  /* Laranja Tropical - A Fazer */
+  --status-doing: #0E7490;
+  /* Azul Petróleo - Em Andamento */
+  --status-done: #059669;
+  /* Verde Esmeralda - Concluídas */
+  --status-success: #10B981;
+  /* Confirmações */
+  --status-warning: #F59E0B;
+  /* Alertas / Atenção */
+  --status-error: #EF4444;
+  /* Erros e Gargalos */
 
   /* Bordas e Contornos */
   --border-color: #E2E8F0;
@@ -85,7 +95,9 @@
 }
 
 /* Reset Global */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -301,7 +313,7 @@ body {
 .brand-main-name {
   font-size: 1.85rem;
   font-weight: 800;
-  color: #FFFFFF;
+  color: var(--emerald-light);
   letter-spacing: -0.5px;
   line-height: 1.1;
 }
@@ -904,10 +916,25 @@ body {
   font-size: 1.25rem;
 }
 
-.icon-blue { background: #E0F2FE; color: var(--petrol-light); }
-.icon-green { background: #ECFDF5; color: var(--emerald-primary); }
-.icon-yellow { background: #FEF3C7; color: var(--amber-dark); }
-.icon-red { background: #FFEDD5; color: var(--orange-primary); }
+.icon-blue {
+  background: #E0F2FE;
+  color: var(--petrol-light);
+}
+
+.icon-green {
+  background: #ECFDF5;
+  color: var(--emerald-primary);
+}
+
+.icon-yellow {
+  background: #FEF3C7;
+  color: var(--amber-dark);
+}
+
+.icon-red {
+  background: #FFEDD5;
+  color: var(--orange-primary);
+}
 
 .metric-value-box {
   display: flex;
@@ -974,12 +1001,29 @@ body {
   flex-direction: column;
 }
 
-.panel-col-4 { grid-column: span 4; }
-.panel-col-5 { grid-column: span 5; }
-.panel-col-6 { grid-column: span 6; }
-.panel-col-7 { grid-column: span 7; }
-.panel-col-8 { grid-column: span 8; }
-.panel-col-12 { grid-column: span 12; }
+.panel-col-4 {
+  grid-column: span 4;
+}
+
+.panel-col-5 {
+  grid-column: span 5;
+}
+
+.panel-col-6 {
+  grid-column: span 6;
+}
+
+.panel-col-7 {
+  grid-column: span 7;
+}
+
+.panel-col-8 {
+  grid-column: span 8;
+}
+
+.panel-col-12 {
+  grid-column: span 12;
+}
 
 .panel-header {
   display: flex;
@@ -1047,9 +1091,20 @@ body {
   border-radius: 50%;
 }
 
-.dot-todo { background-color: var(--status-todo); box-shadow: 0 0 6px rgba(234, 88, 12, 0.4); }
-.dot-doing { background-color: var(--status-doing); box-shadow: 0 0 6px rgba(14, 116, 144, 0.4); }
-.dot-done { background-color: var(--status-done); box-shadow: 0 0 6px rgba(5, 150, 105, 0.4); }
+.dot-todo {
+  background-color: var(--status-todo);
+  box-shadow: 0 0 6px rgba(234, 88, 12, 0.4);
+}
+
+.dot-doing {
+  background-color: var(--status-doing);
+  box-shadow: 0 0 6px rgba(14, 116, 144, 0.4);
+}
+
+.dot-done {
+  background-color: var(--status-done);
+  box-shadow: 0 0 6px rgba(5, 150, 105, 0.4);
+}
 
 .legend-count {
   font-weight: 800;
@@ -1122,8 +1177,13 @@ body {
   margin-top: 2px;
 }
 
-.text-success { color: var(--emerald-primary); }
-.text-danger { color: var(--orange-primary); }
+.text-success {
+  color: var(--emerald-primary);
+}
+
+.text-danger {
+  color: var(--orange-primary);
+}
 
 /* Lista de Gargalos da Semana */
 .bottlenecks-list {
@@ -1211,7 +1271,11 @@ body {
     padding: 32px 24px;
   }
 
-  .panel-col-4, .panel-col-5, .panel-col-6, .panel-col-7, .panel-col-8 {
+  .panel-col-4,
+  .panel-col-5,
+  .panel-col-6,
+  .panel-col-7,
+  .panel-col-8 {
     grid-column: span 12;
   }
 }
@@ -1260,7 +1324,9 @@ body {
     padding: 10px 16px;
   }
 
-  .nav-divider, .user-email-text, .nav-badge {
+  .nav-divider,
+  .user-email-text,
+  .nav-badge {
     display: none;
   }
 
