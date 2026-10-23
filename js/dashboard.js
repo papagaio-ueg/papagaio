@@ -143,11 +143,11 @@
   if (disciplineCanvas) {
     const disciplineData = {
       labels: [
-        'Matemática',
-        'Algoritmos',
+        'Fontend',
+        'Refatoração',
         'Banco de Dados',
-        'Eng. Software',
-        'História'
+        'Requisitos',
+        'Backend'
       ],
       datasets: [{
         label: 'Quantidade de Tarefas',

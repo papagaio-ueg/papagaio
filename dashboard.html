@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +20,7 @@
   <!-- Chart.js via CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body class="dashboard-layout">
 
   <!-- Barra de Navegação Superior (Header) -->
@@ -43,7 +45,8 @@
       </div>
 
       <button type="button" id="btnLogout" class="btn-logout" title="Sair do sistema">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
           <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
           <polyline points="16 17 21 12 16 7"></polyline>
           <line x1="21" y1="12" x2="9" y2="12"></line>
@@ -65,7 +68,8 @@
 
       <div class="dashboard-controls">
         <div class="date-badge">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
             <line x1="16" y1="2" x2="16" y2="6"></line>
             <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -86,7 +90,8 @@
         <div class="metric-header">
           <span class="metric-title">Métrica em Destaque</span>
           <div class="metric-icon-box icon-red">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="12" y1="8" x2="12" y2="12"></line>
               <line x1="12" y1="16" x2="12.01" y2="16"></line>
@@ -107,7 +112,8 @@
         <div class="metric-header">
           <span class="metric-title">Concluídas no Mês</span>
           <div class="metric-icon-box icon-green">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
               <polyline points="22 4 12 14.01 9 11.01"></polyline>
             </svg>
@@ -127,8 +133,11 @@
         <div class="metric-header">
           <span class="metric-title">Saúde das Entregas</span>
           <div class="metric-icon-box icon-blue">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83">
+              </path>
             </svg>
           </div>
         </div>
@@ -146,7 +155,8 @@
         <div class="metric-header">
           <span class="metric-title">Tags & Disciplinas</span>
           <div class="metric-icon-box icon-yellow">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
               <line x1="7" y1="7" x2="7.01" y2="7"></line>
             </svg>
@@ -174,7 +184,7 @@
             <h2 class="panel-title">Funil do Kanban</h2>
             <span class="panel-subtitle">Distribuição percentual das colunas de status</span>
           </div>
-          <span class="panel-badge">Consolidado Gaio</span>
+          <span class="panel-badge">Atividades</span>
         </div>
 
         <div class="chart-container-relative">
@@ -205,7 +215,7 @@
             <h2 class="panel-title">Carga por Disciplina / Tag</h2>
             <span class="panel-subtitle">Mapeamento de esforço e demanda por etiqueta</span>
           </div>
-          <span class="panel-badge">Etiquetas Coloridas</span>
+          <span class="panel-badge">Disciplinas</span>
         </div>
 
         <div class="chart-container-relative">
@@ -220,7 +230,7 @@
             <h2 class="panel-title">Saúde das Entregas & Prazos</h2>
             <span class="panel-subtitle">Indicador visual de conformidade com os prazos</span>
           </div>
-          <span class="panel-badge">Velocímetro</span>
+          <span class="panel-badge">Procentagem</span>
         </div>
 
         <div class="delivery-health-container">
@@ -247,21 +257,22 @@
 
           <!-- Gargalos da Semana -->
           <div>
-            <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary); display: block; margin-bottom: 8px;">
+            <span
+              style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary); display: block; margin-bottom: 8px;">
               ⚠️ Gargalos Identificados na Semana:
             </span>
             <div class="bottlenecks-list">
               <div class="bottleneck-item urgent">
                 <div>
-                  <div class="bottleneck-task-name">Trabalho Prático - Árvores Binárias</div>
-                  <span class="bottleneck-tag">Algoritmos</span>
+                  <div class="bottleneck-task-name">Trabalho - Cadastrar usuários</div>
+                  <span class="bottleneck-tag">Backend & Banco de dados</span>
                 </div>
                 <span class="bottleneck-due">Vence Hoje</span>
               </div>
               <div class="bottleneck-item">
                 <div>
-                  <div class="bottleneck-task-name">Resolução de Lista de Álgebra Linear</div>
-                  <span class="bottleneck-tag">Matemática</span>
+                  <div class="bottleneck-task-name">Resolução do erro de login</div>
+                  <span class="bottleneck-tag">Banco de dados</span>
                 </div>
                 <span class="bottleneck-due">Vence em 2 dias</span>
               </div>
@@ -292,8 +303,9 @@
   <footer class="dashboard-footer" role="contentinfo">
     <p>
       <strong>Papagaio</strong> • Inteligência Analítica para o Ecossistema <strong>Gaio</strong> (UEG)
-      &nbsp;|&nbsp; 
-      <a href="https://github.com/papagaio-ueg/papagaio/" target="_blank" rel="noopener noreferrer" style="color: var(--blue-bright); text-decoration: underline;">
+      &nbsp;|&nbsp;
+      <a href="https://github.com/papagaio-ueg/papagaio/" target="_blank" rel="noopener noreferrer"
+        style="color: var(--blue-bright); text-decoration: underline;">
         Repositório GitHub
       </a>
     </p>
@@ -302,4 +314,5 @@
   <!-- Script Lógico do Dashboard -->
   <script src="js/dashboard.js"></script>
 </body>
+
 </html>
