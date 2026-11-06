@@ -66,7 +66,23 @@ Status do Projeto: 🟢 **Concluído e Atualizado**
 
 ---
 
-## 📱 Fase 5: Testes de Responsividade e Validações Finais
+## 👤 Fase 5: Modal de Perfil do Usuário (`dashboard.html`, `css/style.css` e `js/dashboard.js`)
+- [x] Abertura do modal ao clicar no badge/ícone/nome do usuário no Header
+- [x] Estrutura semântica e acessível de Modal Dialog (`role="dialog"`, `aria-modal="true"`)
+- [x] Alteração de foto de perfil:
+  - [x] Upload de foto local via `FileReader` (Base64) com suporte a PNG, JPG e WEBP
+  - [x] Proteção e validação de tamanho de arquivo (máximo 2MB)
+  - [x] Opção de remoção de foto com retorno automático para as iniciais
+  - [x] Avatares rápidos/presets temáticos com a paleta da Arara e Gaio (🦜, 🎓, 💻, 🚀, 🔬, ⭐)
+- [x] Alteração e validação de nome de exibição em tempo real
+- [x] Armazenamento temporário no navegador (`sessionStorage` e `localStorage` sincronizados)
+- [x] Atualização dinâmica e instantânea do Header sem reload de página
+- [x] Feedback com notificações Toast de sucesso e alerta
+- [x] Suporte a fechamento via backdrop, tecla Escape ou botões Cancelar/Fechar
+
+---
+
+## 📱 Fase 6: Testes de Responsividade e Validações Finais
 - [x] Teste em dispositivos móveis (360px - 480px)
 - [x] Teste em tablets (768px - 1024px)
 - [x] Teste em desktops (> 1200px)

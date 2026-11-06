@@ -1,0 +1,13 @@
+Gráfico de uso de memória RAM / CPU de cada aplicação
+Numero de usuários
+Informação historica ( armazenar dados por dia/mes/ano)
+Uptime
+Requisições
+
+
+
+
+Consumir dados JSON através de uma rota
+
+
+INJESTÃO DE DADOS

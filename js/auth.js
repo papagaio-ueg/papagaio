@@ -327,6 +327,8 @@
       sessionStorage.setItem('papagaio_current_user', JSON.stringify({
         name: loggedUser.name,
         email: loggedUser.email,
+        avatar: loggedUser.avatar || null,
+        avatarType: loggedUser.avatarType || 'initials',
         loginTime: new Date().toISOString()
       }));
 

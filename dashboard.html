@@ -23,6 +23,9 @@
 
 <body class="dashboard-layout">
 
+  <!-- Container de Toasts para Notificações Flutuantes -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
   <!-- Barra de Navegação Superior (Header) -->
   <header class="top-navbar" role="banner">
     <div class="nav-brand">
@@ -36,13 +39,20 @@
 
     <!-- Perfil e Logout -->
     <div class="nav-user-actions">
-      <div class="user-profile-badge">
-        <div class="user-avatar" id="userAvatar">U</div>
+      <!-- Botão Interativo do Perfil (Abre o Modal de Configurações) -->
+      <button type="button" class="user-profile-badge" id="btnOpenProfile" title="Clique para editar seu perfil (Foto e Nome)" aria-haspopup="dialog" aria-expanded="false" aria-controls="profileModal">
+        <div class="user-avatar" id="userAvatar" aria-hidden="true">U</div>
         <div class="user-info-text">
           <span class="user-name" id="userNameDisplay">Usuário</span>
           <span class="user-email-text" id="userEmailDisplay">usuario@ueg.br</span>
         </div>
-      </div>
+        <span class="profile-edit-indicator" aria-hidden="true" title="Editar perfil">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20h9"></path>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+          </svg>
+        </span>
+      </button>
 
       <button type="button" id="btnLogout" class="btn-logout" title="Sair do sistema">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -310,6 +320,147 @@
       </a>
     </p>
   </footer>
+
+  <!-- ========================================================
+       MODAL DE PERFIL DO USUÁRIO (PROTÓTIPO COM STORAGE LOCAL)
+       ======================================================== -->
+  <div id="profileModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="profileModalTitle">
+    <div class="modal-card">
+      
+      <!-- Cabeçalho do Modal -->
+      <div class="modal-header">
+        <div class="modal-header-info">
+          <div class="modal-header-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <div>
+            <h2 id="profileModalTitle" class="modal-title">Configurações do Perfil</h2>
+            <p class="modal-subtitle">Atualize sua foto e nome de exibição no Ecossistema Gaio</p>
+          </div>
+        </div>
+        <button type="button" class="modal-close-btn" id="btnCloseProfileModal" aria-label="Fechar janela de configurações">&times;</button>
+      </div>
+
+      <!-- Formulário do Perfil -->
+      <form id="profileForm" class="modal-body" novalidate>
+        
+        <!-- Bloco de Alteração de Foto / Avatar -->
+        <div class="profile-photo-section">
+          <div class="profile-avatar-preview-wrapper">
+            <div class="profile-avatar-large" id="profileAvatarPreview">
+              <span id="profileAvatarText">EG</span>
+              <img id="profileAvatarImg" src="" alt="Foto de perfil selecionada" class="profile-avatar-img" style="display: none;">
+            </div>
+          </div>
+
+          <div class="profile-photo-controls">
+            <div class="photo-controls-buttons">
+              <label for="profilePhotoFile" class="btn-upload-photo" tabindex="0" role="button" aria-controls="profilePhotoFile">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <span>Carregar Foto</span>
+              </label>
+              <input type="file" id="profilePhotoFile" accept="image/png, image/jpeg, image/webp" style="display: none;">
+
+              <button type="button" id="btnRemovePhoto" class="btn-remove-photo" title="Remover imagem e voltar para iniciais">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="3 6 5 6 21 6"></polyline>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                </svg>
+                <span>Remover</span>
+              </button>
+            </div>
+            <span class="photo-hint">Formatos suportados: PNG, JPG ou WEBP (máx. 2MB).</span>
+          </div>
+        </div>
+
+        <!-- Avatares Rápidos Temáticos -->
+        <div class="avatar-presets-group">
+          <div class="avatar-presets-label">
+            <span>Ou escolha um avatar temático do Gaio:</span>
+          </div>
+          <div class="avatar-presets-list" id="avatarPresetsList">
+            <button type="button" class="avatar-preset-btn" data-preset-emoji="🦜" title="Arara Oficial PAPAGaio">🦜</button>
+            <button type="button" class="avatar-preset-btn" data-preset-emoji="🎓" title="Estudante Gaio">🎓</button>
+            <button type="button" class="avatar-preset-btn" data-preset-emoji="💻" title="Desenvolvedor / TI">💻</button>
+            <button type="button" class="avatar-preset-btn" data-preset-emoji="🚀" title="Foco e Produtividade">🚀</button>
+            <button type="button" class="avatar-preset-btn" data-preset-emoji="🔬" title="Pesquisador Acadêmico">🔬</button>
+            <button type="button" class="avatar-preset-btn" data-preset-emoji="⭐" title="Destaque">⭐</button>
+          </div>
+        </div>
+
+        <!-- Campo: Nome de Exibição -->
+        <div class="form-group">
+          <label for="profileDisplayName" class="form-label">
+            Nome de Exibição <span class="required-mark" style="color: var(--orange-primary);">*</span>
+          </label>
+          <div class="input-wrapper">
+            <span class="input-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </span>
+            <input 
+              type="text" 
+              id="profileDisplayName" 
+              class="form-input" 
+              placeholder="Digite seu nome completo ou social" 
+              maxlength="60"
+              required
+            >
+          </div>
+          <span class="form-error-msg" id="profileNameError"></span>
+        </div>
+
+        <!-- Campo: E-mail (Identificador / Somente Leitura) -->
+        <div class="form-group">
+          <label for="profileEmailDisplayOnly" class="form-label">E-mail Institucional</label>
+          <div class="input-wrapper">
+            <span class="input-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </span>
+            <input 
+              type="email" 
+              id="profileEmailDisplayOnly" 
+              class="form-input input-readonly" 
+              readonly 
+              tabindex="-1"
+            >
+          </div>
+          <span class="input-help-text">E-mail vinculado à autenticação na sessão atual.</span>
+        </div>
+
+        <!-- Notificação de Armazenamento Local / Protótipo -->
+        <div class="profile-prototype-notice" role="note">
+          <span class="prototype-notice-icon" aria-hidden="true">💡</span>
+          <div class="prototype-notice-text">
+            <strong>Ambiente Protótipo:</strong> As alterações são salvas temporariamente na memória do seu navegador (Storage Local/Sessão) e refletem instantaneamente no dashboard.
+          </div>
+        </div>
+
+        <!-- Botões de Ação do Rodapé -->
+        <div class="modal-footer">
+          <button type="button" id="btnCancelProfile" class="btn-modal-cancel">Cancelar</button>
+          <button type="submit" id="btnSaveProfile" class="btn-modal-save">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Salvar Alterações</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <!-- Script Lógico do Dashboard -->
   <script src="js/dashboard.js"></script>
